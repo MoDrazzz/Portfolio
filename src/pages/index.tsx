@@ -1,4 +1,5 @@
 import Header from "components/Header";
+import Wrapper from "components/Wrapper";
 import Head from "next/head";
 
 export default function Home() {
@@ -11,6 +12,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header>Hello, world!</Header>
+      <Wrapper>
+        <p>
+          My name is Grzegorz Pawlik. I am Front-End developer, that praesent
+          sed iaculis ante. Fusce ac viverra orci, quis pulvinar urna. Donec sit
+          amet est luctus, feugiat turpis ut, ultricies ipsum. Quisque eu magna
+          nec.
+        </p>
+        <a className="underline">Download CV</a>
+      </Wrapper>
     </>
   );
 }
