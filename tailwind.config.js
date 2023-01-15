@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
@@ -14,6 +16,9 @@ module.exports = {
           secondary: "#222222",
           gray: "#999999",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-montserrat)"],
       },
     },
   },

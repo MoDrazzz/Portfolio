@@ -7,10 +7,19 @@ config.autoAddCss = false;
 
 import Layout from "components/Layout";
 
+import { Montserrat } from "@next/font/google";
+const montserrat = Montserrat({
+  weight: "300",
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Layout>
-      <Component {...pageProps} />
+      <main className={`${montserrat.variable} font-sans`}>
+        <Component {...pageProps} />
+      </main>
     </Layout>
   );
 }
