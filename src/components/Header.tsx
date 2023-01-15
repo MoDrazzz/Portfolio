@@ -11,7 +11,7 @@ interface Props {
 export default function Header({ children }: Props) {
   return (
     <header className="grid gap-5">
-      <div className="flex justify-between">
+      <div className="relative flex justify-between">
         <Hamburger />
         <div className="flex gap-7 text-light-gray dark:text-dark-gray">
           <a href="#" className="flex">
