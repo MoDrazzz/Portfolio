@@ -1,3 +1,4 @@
+import Footer from "components/Footer";
 import Header from "components/Header";
 import Wrapper from "components/Wrapper";
 import Head from "next/head";
@@ -13,14 +14,17 @@ export default function Home() {
       </Head>
       <Header>Hello, world!</Header>
       <Wrapper>
-        <p>
-          My name is Grzegorz Pawlik. I am Front-End developer, that praesent
-          sed iaculis ante. Fusce ac viverra orci, quis pulvinar urna. Donec sit
-          amet est luctus, feugiat turpis ut, ultricies ipsum. Quisque eu magna
-          nec.
-        </p>
-        <a className="underline">Download CV</a>
+        <div className="grid gap-5">
+          <p>
+            My name is Grzegorz Pawlik. I am Front-End developer, that praesent
+            sed iaculis ante. Fusce ac viverra orci, quis pulvinar urna. Donec
+            sit amet est luctus, feugiat turpis ut, ultricies ipsum. Quisque eu
+            magna nec.
+          </p>
+          <a className="underline">Download CV</a>
+        </div>
       </Wrapper>
+      <Footer />
     </>
   );
 }

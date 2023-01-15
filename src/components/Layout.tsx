@@ -13,9 +13,11 @@ interface Props {
 
 export default function Layout({ children }: Props) {
   return (
-    <main className={`${montserrat.variable} font-sans`}>
+    <div
+      className={`${montserrat.variable} grid h-full grid-rows-[min-content_1fr_min-content] font-sans`}
+    >
       {children}
       <ThemeToggler />
-    </main>
+    </div>
   );
 }
