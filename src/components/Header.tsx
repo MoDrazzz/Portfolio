@@ -1,18 +1,21 @@
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Hamburger from "./Hamburger";
+import Navigation from "./Navigation";
 
-interface Props {
-  children: ReactNode;
-}
+export default function Header() {
+  const [isNavigationActive, setIsNavigationActive] = useState(false);
 
-export default function Header({ children }: Props) {
   return (
     <header className="grid gap-5">
       <div className="relative flex justify-between">
-        <Hamburger />
+        <Hamburger
+          isActive={isNavigationActive}
+          setIsActive={setIsNavigationActive}
+        />
+        <Navigation isActive={isNavigationActive} />
         <div className="flex gap-7 text-light-gray dark:text-dark-gray">
           <a href="#" className="flex">
             <FontAwesomeIcon icon={faGithub} />
@@ -25,7 +28,6 @@ export default function Header({ children }: Props) {
           </a>
         </div>
       </div>
-      <h1 className="text-3xl">{children}</h1>
     </header>
   );
 }

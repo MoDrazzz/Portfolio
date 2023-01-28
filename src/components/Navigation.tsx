@@ -3,7 +3,7 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 
 interface Props {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 export default function Navigation({ isActive }: Props) {
@@ -12,7 +12,7 @@ export default function Navigation({ isActive }: Props) {
       className={classNames(
         "absolute top-full mt-5 w-full origin-top scale-y-0 rounded bg-light-secondary p-5 transition-transform dark:bg-dark-secondary",
         {
-          "scale-y-100": isActive,
+          "scale-y-100": isActive === true,
         }
       )}
     >

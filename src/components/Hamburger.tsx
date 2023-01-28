@@ -1,10 +1,13 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { Dispatch, useState } from "react";
 import Navigation from "./Navigation";
 
-export default function Hamburger() {
-  const [isActive, setIsActive] = useState(false);
+interface Props {
+  setIsActive: Dispatch<React.SetStateAction<boolean>>;
+  isActive: boolean;
+}
 
+export default function Hamburger({ setIsActive, isActive }: Props) {
   return (
     <>
       <button
@@ -36,7 +39,6 @@ export default function Hamburger() {
           )}
         />
       </button>
-      <Navigation isActive={isActive} />
     </>
   );
 }

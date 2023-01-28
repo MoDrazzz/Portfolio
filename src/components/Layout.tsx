@@ -1,5 +1,7 @@
 import ThemeToggler from "./ThemeToggler";
 import { Montserrat } from "@next/font/google";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const montserrat = Montserrat({
   weight: "300",
@@ -14,10 +16,12 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div
-      className={`${montserrat.variable} grid h-full grid-rows-[min-content_1fr_min-content] font-sans`}
+      className={`${montserrat.variable} grid h-full grid-rows-[min-content_1fr_min-content] gap-5 p-5 font-sans`}
     >
+      <Header />
       {children}
       <ThemeToggler />
+      <Footer />
     </div>
   );
 }

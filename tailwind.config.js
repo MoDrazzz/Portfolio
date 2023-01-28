@@ -4,6 +4,12 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
+    screens: {
+      sm: "552px",
+      md: "768px",
+      lg: "992px",
+      xl: "1200px",
+    },
     extend: {
       colors: {
         dark: {
