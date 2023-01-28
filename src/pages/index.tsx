@@ -1,6 +1,7 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
 import Heading from "components/Heading";
+import Paragraph from "components/Paragraph";
 import Wrapper from "components/Wrapper";
 import Head from "next/head";
 
@@ -15,13 +16,15 @@ export default function Home() {
       </Head>
       <Wrapper>
         <Heading>Hello, world!</Heading>
-        <p>
+        <Paragraph>
           My name is Grzegorz Pawlik. I am Front-End developer, that praesent
           sed iaculis ante. Fusce ac viverra orci, quis pulvinar urna. Donec sit
           amet est luctus, feugiat turpis ut, ultricies ipsum. Quisque eu magna
           nec.
-        </p>
-        <a className="underline">Download Resume</a>
+        </Paragraph>
+        <a className="cursor-pointer underline">
+          <Paragraph>Download Resume</Paragraph>
+        </a>
       </Wrapper>
     </>
   );

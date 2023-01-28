@@ -11,14 +11,16 @@ export default function Hamburger({ setIsActive, isActive }: Props) {
   return (
     <>
       <button
-        className="flex h-4 w-4 flex-col justify-between"
+        className={classNames(
+          "flex h-4 w-4 flex-col justify-between sm:h-5 sm:w-5 md:hidden"
+        )}
         onClick={() => setIsActive((prev) => !prev)}
       >
         <span
           className={classNames(
             "block h-0.5 w-full bg-light-secondary transition-transform dark:bg-dark-secondary",
             {
-              "translate-y-[7px] rotate-45": isActive,
+              "translate-y-[7px] rotate-45 sm:translate-y-[9px]": isActive,
             }
           )}
         />
@@ -34,7 +36,7 @@ export default function Hamburger({ setIsActive, isActive }: Props) {
           className={classNames(
             "block h-0.5 w-full bg-light-secondary transition-transform dark:bg-dark-secondary",
             {
-              "-translate-y-[7px] -rotate-45": isActive,
+              "-translate-y-[7px] -rotate-45 sm:-translate-y-[9px]": isActive,
             }
           )}
         />

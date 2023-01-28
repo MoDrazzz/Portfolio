@@ -16,7 +16,7 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <div
-      className={`${montserrat.variable} grid h-full grid-rows-[min-content_1fr_min-content] gap-5 p-5 font-sans`}
+      className={`${montserrat.variable} grid h-full grid-rows-[min-content_1fr_min-content] gap-8 p-6 font-sans max-[450px]:pb-10 sm:gap-10 sm:p-10 md:gap-14 md:p-14 md:pb-12 lg:gap-20 lg:p-32 lg:pb-12 2xl:px-60 2xl:pb-12 2xl:pt-[20vh]`}
     >
       <Header />
       {children}

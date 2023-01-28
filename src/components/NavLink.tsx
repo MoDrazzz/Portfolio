@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import classNames from "classnames";
+import Paragraph from "./Paragraph";
 
 interface Props {
   href: string;
@@ -13,11 +14,15 @@ export default function NavLink({ href, children }: Props) {
   return (
     <li
       className={classNames({
-        "text-dark-secondary dark:text-dark-primary": router.pathname === href,
-        "text-dark-gray dark:text-light-gray": router.pathname != href,
+        "text-light-primary dark:text-dark-primary md:text-light-secondary md:dark:text-dark-secondary":
+          router.pathname === href,
+        "text-dark-gray dark:text-light-gray md:text-light-gray md:dark:text-dark-gray":
+          router.pathname != href,
       })}
     >
-      <Link href={href}>{children}</Link>
+      <Link href={href}>
+        <Paragraph>{children}</Paragraph>
+      </Link>
     </li>
   );
 }

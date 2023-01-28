@@ -3,5 +3,9 @@ interface Props {
 }
 
 export default function Heading({ children }: Props) {
-  return <h1 className="text-3xl">{children}</h1>;
+  return (
+    <h1 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-5xl">
+      {children}
+    </h1>
+  );
 }
