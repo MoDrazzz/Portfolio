@@ -1,11 +1,15 @@
-import Footer from "components/Footer";
-import Header from "components/Header";
 import Heading from "components/Heading";
 import Paragraph from "components/Paragraph";
 import Wrapper from "components/Wrapper";
 import Head from "next/head";
+import * as contentful from "contentful";
 
-export default function Home() {
+interface Content {
+  title: string;
+  description: string;
+}
+
+export default function Home({ title, description }: Content) {
   return (
     <>
       <Head>
@@ -15,17 +19,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
-        <Heading>Hello, world!</Heading>
-        <Paragraph>
-          My name is Grzegorz Pawlik. I am Front-End developer, that praesent
-          sed iaculis ante. Fusce ac viverra orci, quis pulvinar urna. Donec sit
-          amet est luctus, feugiat turpis ut, ultricies ipsum. Quisque eu magna
-          nec.
-        </Paragraph>
+        <Heading>{title}</Heading>
+        <Paragraph>{description}</Paragraph>
         <a className="cursor-pointer underline">
           <Paragraph>Download Resume</Paragraph>
         </a>
       </Wrapper>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const client = contentful.createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY_TOKEN,
+  });
+
+  const { fields } = await client.getEntry<Content>("OqYxf1dgz4uLLGRVrrvpI");
+
+  return {
+    props: {
+      title: fields.title,
+      description: fields.description,
+    },
+  };
 }

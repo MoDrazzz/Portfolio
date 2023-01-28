@@ -19,9 +19,9 @@ export default function Navigation({ isActive }: Props) {
     >
       <ul className="grid gap-3 text-light-primary dark:text-dark-primary md:flex md:gap-12">
         <NavLink href="/">About</NavLink>
-        <NavLink href="projects">Projects</NavLink>
-        <NavLink href="events">Events</NavLink>
-        <NavLink href="contact">Contact</NavLink>
+        <NavLink href="/projects">Projects</NavLink>
+        <NavLink href="/events">Events</NavLink>
+        <NavLink href="/contact">Contact</NavLink>
       </ul>
     </nav>
   );
