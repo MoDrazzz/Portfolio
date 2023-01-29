@@ -12,7 +12,7 @@ export default function Tag({ children, onClick, state }: Props) {
     <div
       onClick={onClick}
       className={classNames(
-        "rounded-[5px] border-2 border-light-gray py-[5px] px-6 dark:border-dark-gray",
+        "rounded-[5px] border-2 border-light-gray py-[5px] px-6 text-xs dark:border-dark-gray md:text-sm lg:text-base",
         {
           "bg-light-gray dark:bg-dark-gray": state,
           "bg-transparent text-light-gray dark:bg-transparent dark:text-dark-gray":
