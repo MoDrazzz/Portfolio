@@ -1,7 +1,9 @@
+"use client";
+
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import Hamburger from "./Hamburger";
 import Navigation from "./Navigation";
 
