@@ -1,7 +1,9 @@
+import Paragraph from "./Paragraph";
+
 interface Props {
   children: React.ReactNode;
 }
 
 export default function ProjectName({ children }: Props) {
-  return <h2 className="lg:text-lg 2xl:text-xl">{children}</h2>;
+  return <Paragraph>{children}</Paragraph>;
 }

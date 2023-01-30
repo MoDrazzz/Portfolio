@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function Paragraph({ children }: Props) {
-  return <p className="sm:text-lg md:text-xl xl:text-2xl">{children}</p>;
+  return <p className="sm:text-lg lg:text-xl">{children}</p>;
 }
