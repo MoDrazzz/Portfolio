@@ -17,7 +17,10 @@ export default function Header() {
           isActive={isNavigationActive}
           setIsActive={setIsNavigationActive}
         />
-        <Navigation isActive={isNavigationActive} />
+        <Navigation
+          setIsActive={setIsNavigationActive}
+          isActive={isNavigationActive}
+        />
         <div className="flex gap-7 text-light-gray dark:text-dark-gray sm:text-lg md:text-xl xl:text-2xl">
           <a href="#" className="flex">
             <FontAwesomeIcon icon={faGithub} />

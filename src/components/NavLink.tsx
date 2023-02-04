@@ -2,13 +2,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
 import Paragraph from "./Paragraph";
+import { Dispatch } from "react";
 
 interface Props {
   href: string;
   children: string;
+  setIsActive: Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function NavLink({ href, children }: Props) {
+export default function NavLink({ href, children, setIsActive }: Props) {
   const pathname = usePathname();
 
   return (
@@ -20,7 +22,7 @@ export default function NavLink({ href, children }: Props) {
           pathname != href,
       })}
     >
-      <Link href={href}>
+      <Link href={href} onClick={() => setIsActive(false)}>
         <Paragraph>{children}</Paragraph>
       </Link>
     </li>

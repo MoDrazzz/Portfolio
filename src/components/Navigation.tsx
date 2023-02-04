@@ -1,12 +1,14 @@
 import classNames from "classnames";
 import Link from "next/link";
+import { Dispatch } from "react";
 import NavLink from "./NavLink";
 
 interface Props {
   isActive?: boolean;
+  setIsActive: Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function Navigation({ isActive }: Props) {
+export default function Navigation({ isActive, setIsActive }: Props) {
   return (
     <nav
       className={classNames(
@@ -18,10 +20,18 @@ export default function Navigation({ isActive }: Props) {
       )}
     >
       <ul className="grid gap-3 text-light-primary dark:text-dark-primary md:flex md:gap-12">
-        <NavLink href="/">About</NavLink>
-        <NavLink href="/projects">Projects</NavLink>
-        <NavLink href="/events">Events</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
+        <NavLink setIsActive={setIsActive} href="/">
+          About
+        </NavLink>
+        <NavLink setIsActive={setIsActive} href="/projects">
+          Projects
+        </NavLink>
+        <NavLink setIsActive={setIsActive} href="/events">
+          Events
+        </NavLink>
+        <NavLink setIsActive={setIsActive} href="/contact">
+          Contact
+        </NavLink>
       </ul>
     </nav>
   );
