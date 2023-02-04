@@ -1,16 +1,16 @@
-import * as Contentful from "contentful";
 import Wrapper from "components/Wrapper";
-import Events from "components/Events";
+import Contact from "components/Contact";
+import * as Contentful from "contentful";
 
-interface Event {
+interface Social {
   name: Contentful.EntryFields.Text;
-  date: Contentful.EntryFields.Text;
+  value: Contentful.EntryFields.Text;
 }
 
 interface Content {
   title: Contentful.EntryFields.Text;
   description: Contentful.EntryFields.Text;
-  events: Contentful.Entry<Event>[];
+  socials: Contentful.Entry<Social>[];
 }
 
 async function getContent() {
@@ -19,12 +19,12 @@ async function getContent() {
     accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY_TOKEN,
   });
 
-  const { fields } = await client.getEntry("200m0TLDonH7nX2FPCIJuX");
+  const { fields } = await client.getEntry("1dwpQ6UyEaWsyMThFc25Yx");
 
   return {
     title: fields.title,
-    events: fields.events,
     description: fields.description,
+    socials: fields.socials,
   };
 }
 
@@ -33,7 +33,7 @@ export default async function Page() {
 
   return (
     <Wrapper>
-      <Events {...content} />
+      <Contact {...content} />
     </Wrapper>
   );
 }
