@@ -43,18 +43,47 @@ export default function Projects({ title, tags, projects }: Content) {
   // Manage the state of a tag by onClick method
   // Display tag's styles accordingly to its state
   // Based on tags states display the list:
-  // - check if there is any tag with false state in the project
-  //    - if yes: return null
-  //    - if no: return project
+  // - by default, all tags are deselected.
+  // - if user selects the tag:
+  //   - search for a project with corresponding tag(s)
 
   const initialTagsState = tags.reduce((prev, curr) => {
     return {
       ...prev,
-      [curr.sys.id]: true,
+      [curr.sys.id]: false,
     };
   }, {});
 
   const [tagsState, setTagsState] = useState<TagsState>(initialTagsState);
+
+  const filteredProjects = projects.filter((project) => {
+    // Set flag, default to true, because if no tag is seleceted, we want to display the project.
+    let flag = true;
+
+    // For each tag in tagsState:
+    for (let tagID in tagsState) {
+      // Check if tag's state is true. If it's not, skip.
+      if (tagsState[tagID]) {
+        // Search in project's tags for the tag.
+        const tagInProject = project.fields.tags.find(
+          (tag) => tag.sys.id == tagID
+        );
+
+        // If the tag doesn't exist in project tags, set the flag to false, because project does not fulfil the criteria.
+        if (!tagInProject) {
+          flag = false;
+          break;
+        }
+      }
+    }
+
+    // If flag is true, keep this project. It means, that every tag that user has selected, has it's equivalent in project tags.
+    if (flag) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
 
   return (
     <>
@@ -77,20 +106,16 @@ export default function Projects({ title, tags, projects }: Content) {
             </Tag>
           ))}
       </div>
-      {projects.map((project, i) => (
+      {filteredProjects.map((project, i) => (
         <Fragment key={project.sys.id}>
-          {project.fields.tags.find((el) => !tagsState[el.sys.id]) ? null : (
-            <>
-              <Project
-                name={project.fields.name}
-                tags={Array.from(project.fields.tags, (tag) => {
-                  return tag.fields.name;
-                }).sort(sortByFirstLetter)}
-                challenges={project.fields.challenges}
-              />
-              {i != projects.length - 1 && <Spacer />}
-            </>
-          )}
+          <Project
+            name={project.fields.name}
+            tags={Array.from(project.fields.tags, (tag) => {
+              return tag.fields.name;
+            }).sort(sortByFirstLetter)}
+            challenges={project.fields.challenges}
+          />
+          {i != filteredProjects.length - 1 && <Spacer />}
         </Fragment>
       ))}
     </>
