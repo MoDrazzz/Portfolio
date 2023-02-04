@@ -1,11 +1,17 @@
 import Paragraph from "./Paragraph";
 
-export default function Footer() {
+interface Props {
+  portfolioLink: string;
+}
+
+export default function Footer({ portfolioLink }: Props) {
   return (
     <footer className="grid text-center text-light-gray dark:text-dark-gray">
       2023 MoDrazzz © All rights Reserved
       <br />
-      {"<"}ViewSourceCode{" />"}
+      <a href={portfolioLink} rel="noreferrer" target="_blank">
+        {"<"}ViewSourceCode{" />"}
+      </a>
     </footer>
   );
 }

@@ -2,20 +2,37 @@ import "styles/globals.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
+import * as Contentful from "contentful";
 
 import Layout from "components/Layout";
 
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
+async function getContent() {
+  const client = Contentful.createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY_TOKEN,
+  });
+
+  const { fields } = await client.getEntry("FFfzjyHiC0O6opTiqdxxP");
+
+  return {
+    github: fields.github,
+    linkedin: fields.linkedin,
+    mail: fields.mail,
+    portfolio: fields.portfolio,
+  };
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const content = await getContent();
+
   return (
     <html lang="en" className="dark">
       <body className="h-[100vh] bg-light-primary text-light-secondary transition-colors dark:bg-dark-primary dark:text-dark-secondary">
-        <Layout>{children}</Layout>
+        <Layout content={content}>{children}</Layout>
       </body>
     </html>
   );

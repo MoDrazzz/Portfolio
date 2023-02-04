@@ -27,13 +27,11 @@ export default async function Page() {
 
   return (
     <Wrapper>
-      {/* <Heading>Siemka</Heading> */}
       <Heading>{title}</Heading>
-      {/* <Paragraph>Dzialam</Paragraph> */}
-      <Paragraph>{description}</Paragraph>
       <a className="cursor-pointer underline">
         <Paragraph>Download Resume</Paragraph>
       </a>
+      <Paragraph>{description}</Paragraph>
     </Wrapper>
   );
 }

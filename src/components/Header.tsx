@@ -7,7 +7,13 @@ import { useState } from "react";
 import Hamburger from "./Hamburger";
 import Navigation from "./Navigation";
 
-export default function Header() {
+interface Props {
+  github: string;
+  linkedin: string;
+  mail: string;
+}
+
+export default function Header({ github, linkedin, mail }: Props) {
   const [isNavigationActive, setIsNavigationActive] = useState(false);
 
   return (
@@ -22,13 +28,13 @@ export default function Header() {
           isActive={isNavigationActive}
         />
         <div className="flex gap-7 text-light-gray dark:text-dark-gray sm:text-lg md:text-xl xl:text-2xl">
-          <a href="#" className="flex">
+          <a href={github} className="flex" rel="noreferrer" target="_blank">
             <FontAwesomeIcon icon={faGithub} />
           </a>
-          <a href="#" className="flex">
+          <a href={linkedin} className="flex" rel="noreferrer" target="_blank">
             <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
-          <a href="#" className="flex">
+          <a href={`mailto:${mail}`} className="flex">
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
         </div>
