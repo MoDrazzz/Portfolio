@@ -6,6 +6,7 @@ import Paragraph from "./Paragraph";
 interface Event {
   name: Contentful.EntryFields.Text;
   date: Contentful.EntryFields.Text;
+  link: Contentful.EntryFields.Text;
 }
 
 interface Entry {
@@ -25,6 +26,7 @@ export default function Events({ title, description, events }: Entry) {
             key={event.sys.id}
             name={event.fields.name}
             date={event.fields.date}
+            link={event.fields.link}
           />
         ))}
       </div>

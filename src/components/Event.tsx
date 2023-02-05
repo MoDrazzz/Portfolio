@@ -5,12 +5,15 @@ import Paragraph from "./Paragraph";
 interface Event {
   name: Contentful.EntryFields.Text;
   date: Contentful.EntryFields.Text;
+  link: Contentful.EntryFields.Text;
 }
 
-export default function Event({ name, date }: Event) {
+export default function Event({ name, date, link }: Event) {
   return (
     <div>
-      <Paragraph>{name}</Paragraph>
+      <a href={link}>
+        <Paragraph>{name}</Paragraph>
+      </a>
       <p>{date}</p>
     </div>
   );

@@ -5,6 +5,7 @@ import Events from "components/Events";
 interface Event {
   name: Contentful.EntryFields.Text;
   date: Contentful.EntryFields.Text;
+  link: Contentful.EntryFields.Text;
 }
 
 interface Content {

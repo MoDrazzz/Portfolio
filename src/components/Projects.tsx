@@ -15,6 +15,7 @@ interface Project {
   name: Contentful.EntryFields.Text;
   challenges: Contentful.EntryFields.Text[];
   tags: Contentful.Entry<Tag>[];
+  link: Contentful.EntryFields.Text;
 }
 
 interface Content {
@@ -114,6 +115,7 @@ export default function Projects({ title, tags, projects }: Content) {
               return tag.fields.name;
             }).sort(sortByFirstLetter)}
             challenges={project.fields.challenges}
+            link={project.fields.link}
           />
           {i != filteredProjects.length - 1 && <Spacer />}
         </Fragment>

@@ -12,6 +12,7 @@ interface Project {
   name: Contentful.EntryFields.Text;
   challenges: Contentful.EntryFields.Text[];
   tags: Contentful.Entry<Tag>[];
+  link: Contentful.EntryFields.Text;
 }
 
 interface Content {
@@ -38,7 +39,6 @@ async function getContent() {
     title: fields.title,
     projects: fields.projects,
     tags,
-    fields,
   };
 }
 
