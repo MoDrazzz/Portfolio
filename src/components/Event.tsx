@@ -11,7 +11,7 @@ interface Event {
 export default function Event({ name, date, link }: Event) {
   return (
     <div>
-      <a href={link}>
+      <a href={link} target="_blank" rel="noreferrer">
         <Paragraph>{name}</Paragraph>
       </a>
       <p>{date}</p>
