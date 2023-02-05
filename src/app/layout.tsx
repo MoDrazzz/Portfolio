@@ -31,7 +31,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark h-full">
-      <body className="h-full bg-light-primary text-light-secondary transition-colors dark:bg-dark-primary dark:text-dark-secondary">
+      <body className="h-full bg-light-primary text-light-secondary dark:bg-dark-primary dark:text-dark-secondary">
         <Layout content={content}>{children}</Layout>
       </body>
     </html>
