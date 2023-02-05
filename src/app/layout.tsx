@@ -30,8 +30,8 @@ export default async function RootLayout({
   const content = await getContent();
 
   return (
-    <html lang="en" className="dark">
-      <body className="h-[100vh] bg-light-primary text-light-secondary transition-colors dark:bg-dark-primary dark:text-dark-secondary">
+    <html lang="en" className="dark h-full">
+      <body className="h-full bg-light-primary text-light-secondary transition-colors dark:bg-dark-primary dark:text-dark-secondary">
         <Layout content={content}>{children}</Layout>
       </body>
     </html>
