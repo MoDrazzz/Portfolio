@@ -2,6 +2,7 @@ import ThemeToggler from "./ThemeToggler";
 import { Montserrat } from "@next/font/google";
 import Footer from "./Footer";
 import Header from "./Header";
+import Wrapper from "./Wrapper";
 
 const montserrat = Montserrat({
   weight: "300",
@@ -29,7 +30,9 @@ export default function Layout({ children, content }: Props) {
         linkedin={content.linkedin}
         mail={content.mail}
       />
-      {children}
+      <div className="after:bg-[linear-gradient(to_bottom,_rgba(255,255,255,0),_rgba(255,255,255, 1)_90%)] relative overflow-hidden from-transparent to-light-primary after:pointer-events-none after:absolute after:bottom-0 after:h-12 after:w-full after:bg-gradient-to-b dark:to-dark-primary">
+        <Wrapper>{children}</Wrapper>
+      </div>
       <ThemeToggler />
       <Footer portfolioLink={content.portfolio} />
     </div>

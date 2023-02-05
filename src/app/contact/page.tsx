@@ -32,8 +32,8 @@ export default async function Page() {
   const content: Content = await getContent();
 
   return (
-    <Wrapper>
+    <>
       <Contact {...content} />
-    </Wrapper>
+    </>
   );
 }
