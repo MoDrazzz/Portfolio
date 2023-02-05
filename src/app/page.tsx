@@ -29,7 +29,7 @@ export default async function Page() {
     <Wrapper>
       <Heading>{title}</Heading>
       <a className="cursor-pointer underline">
-        <Paragraph>Download Resume</Paragraph>
+        <Paragraph>Download Resume (to be added)</Paragraph>
       </a>
       <Paragraph>{description}</Paragraph>
     </Wrapper>
