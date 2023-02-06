@@ -1,6 +1,7 @@
 "use client";
 
 import * as Contentful from "contentful";
+import { AnimatePresence } from "framer-motion";
 import { Fragment, useEffect, useState } from "react";
 import Heading from "./Heading";
 import Project from "./Project";
@@ -107,19 +108,21 @@ export default function Projects({ title, tags, projects }: Content) {
             </Tag>
           ))}
       </div>
-      {filteredProjects.map((project, i) => (
-        <Fragment key={project.sys.id}>
-          <Project
-            name={project.fields.name}
-            tags={Array.from(project.fields.tags, (tag) => {
-              return tag.fields.name;
-            }).sort(sortByFirstLetter)}
-            challenges={project.fields.challenges}
-            link={project.fields.link}
-          />
-          {i != filteredProjects.length - 1 && <Spacer />}
-        </Fragment>
-      ))}
+      <AnimatePresence initial={false}>
+        {filteredProjects.map((project, i) => (
+          <Fragment key={project.sys.id}>
+            <Project
+              name={project.fields.name}
+              tags={Array.from(project.fields.tags, (tag) => {
+                return tag.fields.name;
+              }).sort(sortByFirstLetter)}
+              challenges={project.fields.challenges}
+              link={project.fields.link}
+            />
+            {i != filteredProjects.length - 1 && <Spacer />}
+          </Fragment>
+        ))}
+      </AnimatePresence>
     </>
   );
 }
