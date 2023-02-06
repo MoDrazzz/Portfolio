@@ -109,19 +109,21 @@ export default function Projects({ title, tags, projects }: Content) {
           ))}
       </div>
       <AnimatePresence initial={false}>
-        {filteredProjects.map((project, i) => (
-          <Fragment key={project.sys.id}>
-            <Project
-              name={project.fields.name}
-              tags={Array.from(project.fields.tags, (tag) => {
-                return tag.fields.name;
-              }).sort(sortByFirstLetter)}
-              challenges={project.fields.challenges}
-              link={project.fields.link}
-            />
-            {i != filteredProjects.length - 1 && <Spacer />}
-          </Fragment>
-        ))}
+        {filteredProjects
+          .sort((a, b) => sortByFirstLetter(a.fields.name, b.fields.name))
+          .map((project, i) => (
+            <Fragment key={project.sys.id}>
+              <Project
+                name={project.fields.name}
+                tags={Array.from(project.fields.tags, (tag) => {
+                  return tag.fields.name;
+                }).sort(sortByFirstLetter)}
+                challenges={project.fields.challenges}
+                link={project.fields.link}
+              />
+              {i != filteredProjects.length - 1 && <Spacer />}
+            </Fragment>
+          ))}
       </AnimatePresence>
     </>
   );
