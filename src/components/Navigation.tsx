@@ -12,7 +12,7 @@ export default function Navigation({ isActive, setIsActive }: Props) {
   return (
     <nav
       className={classNames(
-        "absolute top-full mt-5 w-full origin-top scale-y-0 rounded bg-light-secondary p-5 transition-transform dark:bg-dark-secondary",
+        "absolute top-full z-10 mt-5 w-full origin-top scale-y-0 rounded bg-light-secondary p-5 transition-transform dark:bg-dark-secondary",
         {
           "scale-y-100": isActive === true,
         },
