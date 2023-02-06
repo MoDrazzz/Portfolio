@@ -46,8 +46,8 @@ export default async function Page() {
   const content: Content = await getContent();
 
   return (
-    <>
+    <Wrapper>
       <Projects {...content} />
-    </>
+    </Wrapper>
   );
 }

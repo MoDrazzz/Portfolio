@@ -33,8 +33,8 @@ export default async function Page() {
   const content: Content = await getContent();
 
   return (
-    <>
+    <Wrapper>
       <Events {...content} />
-    </>
+    </Wrapper>
   );
 }

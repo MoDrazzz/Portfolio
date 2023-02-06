@@ -26,12 +26,12 @@ export default async function Page() {
   const { title, description }: Content = await getContent();
 
   return (
-    <>
+    <Wrapper>
       <Heading>{title}</Heading>
       <a className="cursor-pointer underline">
         <Paragraph>Download Resume (to be added)</Paragraph>
       </a>
       <Paragraph>{description}</Paragraph>
-    </>
+    </Wrapper>
   );
 }
