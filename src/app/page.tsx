@@ -28,8 +28,13 @@ export default async function Page() {
   return (
     <Wrapper>
       <Heading>{title}</Heading>
-      <a className="cursor-pointer underline">
-        <Paragraph>Download Resume (to be added)</Paragraph>
+      <a
+        href="./Grzegorz Pawlik.pdf"
+        target="_blank"
+        rel="noreferrer"
+        className="cursor-pointer underline"
+      >
+        <Paragraph>Download Resume</Paragraph>
       </a>
       <Paragraph>{description}</Paragraph>
     </Wrapper>
