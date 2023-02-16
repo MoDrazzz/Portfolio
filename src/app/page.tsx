@@ -34,7 +34,7 @@ export default async function Page() {
         rel="noreferrer"
         className="cursor-pointer underline"
       >
-        <Paragraph>Download Resume</Paragraph>
+        <Paragraph>Download CV</Paragraph>
       </a>
       <Paragraph>{description}</Paragraph>
     </Wrapper>
