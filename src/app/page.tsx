@@ -8,12 +8,22 @@ interface Content {
   description: Contentful.EntryFields.Text;
 }
 
-async function getContent() {
-  const client = Contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY_TOKEN,
-  });
+interface CV {
+  cvFile: {
+    fields: {
+      title: Contentful.EntryFields.Text;
+      description: Contentful.EntryFields.Text;
+      file: Contentful.AssetFile;
+    };
+  };
+}
 
+const client = Contentful.createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY_TOKEN,
+});
+
+async function getContent() {
   const { fields } = await client.getEntry<Content>("OqYxf1dgz4uLLGRVrrvpI");
 
   return {
@@ -22,14 +32,23 @@ async function getContent() {
   };
 }
 
+async function getCV() {
+  const { fields } = await client.getEntry<CV>("7l7N2zNAaCbwY5wHdOTlWQ");
+
+  return fields;
+}
+
 export default async function Page() {
   const { title, description }: Content = await getContent();
+  const fields = await getCV();
+
+  console.log(fields.cvFile.fields.file.url);
 
   return (
     <Wrapper>
       <Heading>{title}</Heading>
       <a
-        href="./Grzegorz Pawlik.pdf"
+        href={fields.cvFile.fields.file.url}
         target="_blank"
         rel="noreferrer"
         className="cursor-pointer underline"
