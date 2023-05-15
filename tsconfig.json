@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     "environment.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/lib/gtag.js"
   ],
   "exclude": ["node_modules"]
 }

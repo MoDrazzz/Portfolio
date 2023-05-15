@@ -3,9 +3,9 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 import * as Contentful from "contentful";
-
 import Layout from "components/Layout";
 import { Metadata } from "next";
+import Script from "next/script";
 
 async function getContent() {
   const client = Contentful.createClient({
@@ -35,6 +35,24 @@ export default async function RootLayout({
       <body className="h-full bg-light-primary text-light-secondary dark:bg-dark-primary dark:text-dark-secondary">
         <Layout content={content}>{children}</Layout>
       </body>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}}`}
+      />
+      <Script
+        id="gtag"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
+            page_path: window.location.pathname,
+          });
+        `,
+        }}
+      />
     </html>
   );
 }
