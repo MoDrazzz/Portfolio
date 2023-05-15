@@ -1,6 +1,7 @@
 import Wrapper from "components/Wrapper";
 import Contact from "components/Contact";
 import * as Contentful from "contentful";
+import { Metadata } from "next";
 
 interface Social {
   name: Contentful.EntryFields.Text;
@@ -37,3 +38,8 @@ export default async function Page() {
     </Wrapper>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Contact - Grzegorz Pawlik",
+  description: "Contact me via form or one of my socials!",
+};

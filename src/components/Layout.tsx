@@ -1,11 +1,10 @@
 import ThemeToggler from "./ThemeToggler";
-import { Montserrat } from "@next/font/google";
+import { Montserrat } from "next/font/google";
 import Footer from "./Footer";
 import Header from "./Header";
-import Wrapper from "./Wrapper";
 
 const montserrat = Montserrat({
-  weight: "300",
+  weight: ["300"],
   subsets: ["latin-ext", "latin"],
   variable: "--font-montserrat",
 });

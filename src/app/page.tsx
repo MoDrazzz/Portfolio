@@ -2,6 +2,7 @@ import * as Contentful from "contentful";
 import Heading from "components/Heading";
 import Paragraph from "components/Paragraph";
 import Wrapper from "components/Wrapper";
+import { Metadata } from "next";
 
 interface Content {
   title: Contentful.EntryFields.Text;
@@ -42,8 +43,6 @@ export default async function Page() {
   const { title, description }: Content = await getContent();
   const fields = await getCV();
 
-  console.log(fields.cvFile.fields.file.url);
-
   return (
     <Wrapper>
       <Heading>{title}</Heading>
@@ -59,3 +58,9 @@ export default async function Page() {
     </Wrapper>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Grzegorz Pawlik - Front-End Developer",
+  description:
+    "My name is Grzegorz Pawlik. I am a 17-year-old front-end developer based in Bielsko-Biała, Poland. Meet me closer!",
+};

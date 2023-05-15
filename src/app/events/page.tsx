@@ -1,6 +1,7 @@
 import * as Contentful from "contentful";
 import Wrapper from "components/Wrapper";
 import Events from "components/Events";
+import { Metadata } from "next";
 
 interface Event {
   name: Contentful.EntryFields.Text;
@@ -38,3 +39,8 @@ export default async function Page() {
     </Wrapper>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Events - Grzegorz Pawlik",
+  description: "Look over events I participate to!",
+};

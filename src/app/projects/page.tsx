@@ -3,6 +3,7 @@ import Wrapper from "components/Wrapper";
 import Tag from "components/Tag";
 import Project from "components/Project";
 import Projects from "components/Projects";
+import { Metadata } from "next";
 
 interface Tag {
   name: Contentful.EntryFields.Text;
@@ -51,3 +52,8 @@ export default async function Page() {
     </Wrapper>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Projects - Grzegorz Pawlik",
+  description: "Check out my projects!",
+};
