@@ -9,6 +9,7 @@ import Textarea from "./Textarea";
 import Button from "./Button";
 import { useRef, useState } from "react";
 import { flushSync } from "react-dom";
+import Subheading from "./Subheading";
 
 interface Social {
   name: Contentful.EntryFields.Text;
@@ -83,7 +84,7 @@ export default function Contact({ title, description, socials }: Props) {
   return (
     <>
       <Heading>{title}</Heading>
-      <Paragraph>{description}</Paragraph>
+      <Subheading>{description}</Subheading>
       <div className="flex flex-col-reverse gap-5 lg:flex-row">
         <form
           ref={formRef}
@@ -114,7 +115,7 @@ export default function Contact({ title, description, socials }: Props) {
           {socials.map((social) => (
             <li key={social.sys.id}>
               <Paragraph>
-                {social.fields.name}: {social.fields.value}
+                {social.fields.name}: <strong>{social.fields.value}</strong>
               </Paragraph>
             </li>
           ))}

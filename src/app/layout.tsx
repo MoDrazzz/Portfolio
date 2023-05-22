@@ -98,10 +98,20 @@ export const metadata: Metadata = {
     "GIT",
     "Debugging",
     "Troubleshooting",
+    "MoDrazzz",
+    "CV",
+    "Curriculum Vitae",
+    "Resume",
   ],
   openGraph: {
     title: "Grzegorz Pawlik - Front-End Developer",
     description:
       "I am a 17-year-old front-end developer based in Bielsko-Biała, Poland. Programming became my passion in October, 2022. I improved my React skills significantly. Now, as I continue to improve, I am looking for opportunities to grow, specifically with a company that can hire me for part-time work, as I am still a student.",
+    images: {
+      width: 1200,
+      height: 630,
+      alt: "Grzegorz Pawlik - Front-End Developer",
+      url: "https://images.ctfassets.net/r9jzd3t9nura/6JfYHJnkE7k4EkUX2za2fE/1e4c4e05a576de22f7232a7154d98086/Open_Graph_Image.png",
+    },
   },
 };

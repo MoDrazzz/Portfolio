@@ -12,7 +12,9 @@ export default function Event({ name, date, link }: Event) {
   return (
     <div>
       <a href={link} target="_blank" rel="noreferrer">
-        <Paragraph>{name}</Paragraph>
+        <Paragraph>
+          <strong>{name}</strong>
+        </Paragraph>
       </a>
       <p>{date}</p>
     </div>

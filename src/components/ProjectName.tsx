@@ -9,7 +9,9 @@ interface Props {
 export default function ProjectName({ children, link }: Props) {
   return (
     <a href={link} target="_blank" rel="noreferrer">
-      <Paragraph>{children}</Paragraph>
+      <Paragraph>
+        <strong>{children}</strong>
+      </Paragraph>
     </a>
   );
 }

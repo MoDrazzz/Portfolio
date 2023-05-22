@@ -2,6 +2,7 @@ import Heading from "./Heading";
 import * as Contentful from "contentful";
 import Event from "./Event";
 import Paragraph from "./Paragraph";
+import Subheading from "./Subheading";
 
 interface Event {
   name: Contentful.EntryFields.Text;
@@ -19,7 +20,7 @@ export default function Events({ title, description, events }: Entry) {
   return (
     <>
       <Heading>{title}</Heading>
-      <Paragraph>{description}</Paragraph>
+      <Subheading>{description}</Subheading>
       <div className="flex flex-wrap justify-between gap-5 after:flex-[0.8]">
         {events.map((event) => (
           <Event
